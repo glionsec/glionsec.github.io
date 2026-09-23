@@ -5,8 +5,8 @@ GitHub Pages 向けの静的なプロフィールサイトです。`index.html` 
 - 黒・白の配色を切り替えられます。
 - 日本語・英語を切り替えられます。
 - 選択した設定はブラウザ内に保存されます。保存が利用できない場合も切り替えは使えます。
-- Twitter、Qiita、GitHub、HTB は現在ラベルのみで、リンクは設定していません。
+- X / Twitter、GitHub、HTB はリンクを設定しています。Qiita は URL 未指定のためラベルのみです。
 
-文章を変更するときは、`index.html` の初期表示用の日本語と、`app.js` の `copy.ja` / `copy.en` を合わせて更新してください。SNS の URL が決まったら、`index.html` の `.social-list` にある各項目をリンクに変更できます。
+文章を変更するときは、`index.html` の初期表示用の日本語と、`app.js` の `copy.ja` / `copy.en` を合わせて更新してください。Qiita の URL が決まったら、`index.html` の `.social-list` にある Qiita の項目をリンクに変更できます。
 
 ローカル確認には、リポジトリのディレクトリで `python3 -m http.server 8000` を実行し、`http://localhost:8000/` を開いてください。
