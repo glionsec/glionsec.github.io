@@ -110,9 +110,6 @@ a { color: inherit; }
 .sidebar__compact-controls { display: none; }
 .sidebar__compact-controls button { display: grid; place-items: center; width: 36px; height: 36px; padding: 0; border: 0; background: transparent; color: var(--secondary); cursor: pointer; }
 .sidebar__compact-controls button:hover { color: var(--accent); }
-.sidebar__icon-moon { display: none; }
-:root[data-theme="light"] .sidebar__icon-sun { display: none; }
-:root[data-theme="light"] .sidebar__icon-moon { display: block; }
 :root[data-sidebar="collapsed"] .sidebar { width: 60px; }
 :root[data-sidebar="collapsed"] .sidebar__identity,
 :root[data-sidebar="collapsed"] .sidebar__nav,
