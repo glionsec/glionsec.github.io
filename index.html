@@ -15,9 +15,6 @@
     <aside class="sidebar">
       <header class="sidebar__identity">
         <a class="sidebar__name" href="#home">Home</a>
-        <button class="sidebar__toggle" type="button" data-sidebar-toggle aria-controls="sidebar-nav sidebar-preferences" aria-expanded="true" aria-label="サイドバーを折りたたむ" title="サイドバーを折りたたむ">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m15 5-7 7 7 7" /></svg>
-        </button>
       </header>
 
       <nav class="sidebar__nav" id="sidebar-nav" aria-label="ページ内の移動" data-i18n-aria="navigation">
@@ -32,9 +29,9 @@
         </a>
       </nav>
 
-      <div class="sidebar__bottom" id="sidebar-preferences">
+      <div class="sidebar__bottom">
         <div class="sidebar__rule" aria-hidden="true"></div>
-        <div class="preferences" role="group" aria-label="表示設定" data-i18n-aria="preferences">
+        <div class="preferences" id="sidebar-preferences" role="group" aria-label="表示設定" data-i18n-aria="preferences">
           <div class="preference">
             <span class="preference__label" data-i18n="appearance">表示</span>
             <div class="segmented" role="group" aria-label="配色" data-i18n-group="themeGroup">
@@ -50,6 +47,9 @@
             </div>
           </div>
         </div>
+        <button class="sidebar__toggle" type="button" data-sidebar-toggle aria-controls="sidebar-nav sidebar-preferences" aria-expanded="true" aria-label="サイドバーを折りたたむ" title="サイドバーを折りたたむ">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m15 5-7 7 7 7" /></svg>
+        </button>
       </div>
     </aside>
 
