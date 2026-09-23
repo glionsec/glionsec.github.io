@@ -35,7 +35,11 @@
       languageGroup: "言語",
       socialList: "SNSリンク",
       collapseSidebar: "サイドバーを折りたたむ",
-      expandSidebar: "サイドバーを開く"
+      expandSidebar: "サイドバーを開く",
+      switchToLight: "白テーマに切り替える",
+      switchToDark: "黒テーマに切り替える",
+      switchToEnglish: "英語に切り替える",
+      switchToJapanese: "日本語に切り替える"
     },
     en: {
       title: "ぐり | Security Engineer",
@@ -69,7 +73,11 @@
       languageGroup: "Language",
       socialList: "Social links",
       collapseSidebar: "Collapse sidebar",
-      expandSidebar: "Expand sidebar"
+      expandSidebar: "Expand sidebar",
+      switchToLight: "Switch to light theme",
+      switchToDark: "Switch to dark theme",
+      switchToEnglish: "Switch to English",
+      switchToJapanese: "Switch to Japanese"
     }
   };
 
@@ -81,6 +89,17 @@
   };
 
   const sidebarToggle = document.querySelector("[data-sidebar-toggle]");
+  const compactTheme = document.querySelector("[data-compact-theme]");
+  const compactLanguage = document.querySelector("[data-compact-language]");
+  const syncCompactControls = () => {
+    const translated = copy[document.documentElement.lang] || copy.ja;
+    const themeLabel = document.documentElement.dataset.theme === "light" ? translated.switchToDark : translated.switchToLight;
+    const languageLabel = document.documentElement.lang === "en" ? translated.switchToJapanese : translated.switchToEnglish;
+    compactTheme.setAttribute("aria-label", themeLabel);
+    compactTheme.title = themeLabel;
+    compactLanguage.setAttribute("aria-label", languageLabel);
+    compactLanguage.title = languageLabel;
+  };
   const syncSidebarToggle = () => {
     const expanded = document.documentElement.dataset.sidebar !== "collapsed";
     const translated = copy[document.documentElement.lang] || copy.ja;
@@ -101,6 +120,7 @@
       button.setAttribute("aria-pressed", String(button.dataset.themeChoice === theme));
     });
     document.querySelector('meta[name="theme-color"]').content = theme === "light" ? "#e7eeec" : "#0b151d";
+    syncCompactControls();
     remember(storageKeyTheme, theme);
   };
 
@@ -122,6 +142,7 @@
       button.setAttribute("aria-pressed", String(button.dataset.langChoice === language));
     });
     syncSidebarToggle();
+    syncCompactControls();
     remember(storageKeyLanguage, language);
   };
 
@@ -130,6 +151,12 @@
   });
   document.querySelectorAll("[data-lang-choice]").forEach((button) => {
     button.addEventListener("click", () => applyLanguage(button.dataset.langChoice));
+  });
+  compactTheme.addEventListener("click", () => {
+    applyTheme(document.documentElement.dataset.theme === "light" ? "dark" : "light");
+  });
+  compactLanguage.addEventListener("click", () => {
+    applyLanguage(document.documentElement.lang === "en" ? "ja" : "en");
   });
   sidebarToggle.addEventListener("click", () => {
     applySidebar(document.documentElement.dataset.sidebar === "collapsed");
