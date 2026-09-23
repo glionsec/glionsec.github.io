@@ -245,21 +245,15 @@ a { color: inherit; }
 }
 
 .social { margin-top: 47px; }
-.social-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; margin: 0; padding: 0; list-style: none; }
-.social-list li { min-width: 0; }
+.social-list { display: flex; flex-wrap: wrap; gap: 12px; margin: 0; padding: 0; list-style: none; }
 .social-tile {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 18px;
-  min-height: 83px;
-  padding: 10px 13px;
+  width: 48px;
+  height: 48px;
   border: 1px solid var(--line);
   background: var(--tile);
-  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
-  font-size: 1rem;
-  letter-spacing: .04em;
-  text-decoration: none;
   transition: border-color .2s, background-color .2s;
 }
 a.social-tile:hover { border-color: var(--accent); background: var(--nav-active); }
@@ -270,8 +264,6 @@ a.social-tile:hover { border-color: var(--accent); background: var(--nav-active)
   .sidebar__identity { padding-left: 30px; }
   .sidebar__bottom { padding-left: 30px; }
   .main { margin-left: 218px; }
-  .social-list { gap: 12px; }
-  .social-tile { gap: 13px; font-size: .87rem; }
 }
 
 @media (max-width: 700px) {
@@ -291,11 +283,6 @@ a.social-tile:hover { border-color: var(--accent); background: var(--nav-active)
   .content-section { scroll-margin-top: 20px; }
   .intro { min-height: 348px; }
   .scope-art { width: 60%; opacity: .15; }
-  .social-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-}
-
-@media (max-width: 600px) {
-  .social-list { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 450px) {
@@ -305,9 +292,6 @@ a.social-tile:hover { border-color: var(--accent); background: var(--nav-active)
   .scope-art { top: 67px; }
   .qualification-list li { padding: 8px 5px; font-size: .9rem; }
   .qualification-list li::before { flex-basis: 46px; margin-right: 15px; padding-right: 11px; }
-  .social-list { gap: 10px; }
-  .social-tile { min-height: 66px; gap: 8px; padding: 8px; font-size: .81rem; }
-  .social-tile__icon { flex-basis: 18px; width: 18px; height: 18px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
