@@ -1,6 +1,7 @@
 (() => {
   const storageKeyTheme = "guri-theme";
   const storageKeyLanguage = "guri-language";
+  const storageKeySidebar = "guri-sidebar";
   const copy = {
     ja: {
       title: "ぐり | セキュリティエンジニア",
@@ -32,7 +33,9 @@
       preferences: "表示設定",
       themeGroup: "配色",
       languageGroup: "言語",
-      socialList: "SNSリンク"
+      socialList: "SNSリンク",
+      collapseSidebar: "サイドバーを折りたたむ",
+      expandSidebar: "サイドバーを開く"
     },
     en: {
       title: "ぐり | Security Engineer",
@@ -64,7 +67,9 @@
       preferences: "Display preferences",
       themeGroup: "Color theme",
       languageGroup: "Language",
-      socialList: "Social links"
+      socialList: "Social links",
+      collapseSidebar: "Collapse sidebar",
+      expandSidebar: "Expand sidebar"
     }
   };
 
@@ -73,6 +78,21 @@
   };
   const remember = (key, value) => {
     try { localStorage.setItem(key, value); } catch { /* Browsing still works without storage. */ }
+  };
+
+  const sidebarToggle = document.querySelector("[data-sidebar-toggle]");
+  const syncSidebarToggle = () => {
+    const expanded = document.documentElement.dataset.sidebar !== "collapsed";
+    const translated = copy[document.documentElement.lang] || copy.ja;
+    const label = expanded ? translated.collapseSidebar : translated.expandSidebar;
+    sidebarToggle.setAttribute("aria-expanded", String(expanded));
+    sidebarToggle.setAttribute("aria-label", label);
+    sidebarToggle.title = label;
+  };
+  const applySidebar = (expanded) => {
+    document.documentElement.dataset.sidebar = expanded ? "expanded" : "collapsed";
+    syncSidebarToggle();
+    remember(storageKeySidebar, document.documentElement.dataset.sidebar);
   };
 
   const applyTheme = (theme) => {
@@ -101,6 +121,7 @@
     document.querySelectorAll("[data-lang-choice]").forEach((button) => {
       button.setAttribute("aria-pressed", String(button.dataset.langChoice === language));
     });
+    syncSidebarToggle();
     remember(storageKeyLanguage, language);
   };
 
@@ -110,9 +131,13 @@
   document.querySelectorAll("[data-lang-choice]").forEach((button) => {
     button.addEventListener("click", () => applyLanguage(button.dataset.langChoice));
   });
+  sidebarToggle.addEventListener("click", () => {
+    applySidebar(document.documentElement.dataset.sidebar === "collapsed");
+  });
 
   applyTheme(stored(storageKeyTheme) === "light" ? "light" : "dark");
   applyLanguage(stored(storageKeyLanguage) === "en" ? "en" : "ja");
+  applySidebar(stored(storageKeySidebar) !== "collapsed");
 
   const links = Array.from(document.querySelectorAll(".nav-link"));
   const sections = links.map((link) => document.querySelector(link.getAttribute("href")));
