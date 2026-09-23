@@ -1,1 +1,112 @@
-<meta http-equiv="refresh" content="0; URL='https://t.co/oxp7HI6uT6'" />
+<!doctype html>
+<html lang="ja" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b151d" />
+    <meta name="description" content="ぐりのセキュリティエンジニアとしてのプロフィールと資格。" />
+    <title>ぐり | セキュリティエンジニア</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main" data-i18n="skip">本文へ移動</a>
+
+    <aside class="sidebar">
+      <div class="sidebar__identity">
+        <a class="sidebar__name" href="#about">ぐり</a>
+        <p data-i18n="role">セキュリティエンジニア</p>
+      </div>
+
+      <nav class="sidebar__nav" aria-label="ページ内の移動" data-i18n-aria="navigation">
+        <a class="nav-link is-active" href="#about" aria-current="location">
+          <span data-i18n="about">自己紹介</span>
+        </a>
+        <a class="nav-link" href="#qualifications">
+          <span data-i18n="qualifications">資格</span>
+        </a>
+        <a class="nav-link" href="#social">
+          <span data-i18n="social">SNS</span>
+        </a>
+      </nav>
+
+      <div class="sidebar__rule" aria-hidden="true"></div>
+    </aside>
+
+    <main class="main" id="main">
+      <div class="main__inner">
+        <div class="preferences" aria-label="表示設定" data-i18n-aria="preferences">
+          <div class="preference">
+            <span class="preference__label" data-i18n="appearance">表示</span>
+            <div class="segmented" role="group" aria-label="配色" data-i18n-group="themeGroup">
+              <button type="button" data-theme-choice="dark" aria-pressed="true" data-i18n="dark">黒</button>
+              <button type="button" data-theme-choice="light" aria-pressed="false" data-i18n="light">白</button>
+            </div>
+          </div>
+          <div class="preference">
+            <span class="preference__label" data-i18n="language">言語</span>
+            <div class="segmented" role="group" aria-label="言語" data-i18n-group="languageGroup">
+              <button type="button" data-lang-choice="ja" aria-pressed="true">日本語</button>
+              <button type="button" data-lang-choice="en" aria-pressed="false">English</button>
+            </div>
+          </div>
+        </div>
+
+        <section class="intro content-section" id="about" aria-labelledby="page-name">
+          <svg class="network-art" viewBox="0 0 460 280" aria-hidden="true" focusable="false">
+            <g class="network-art__lines" fill="none" stroke="currentColor" stroke-width="1">
+              <path d="M18 170 104 99 160 153 242 42 307 113 431 23M104 99 199 88 307 113 357 216 432 174M18 170 160 153 246 225 357 216M160 153 199 88 242 42M307 113 432 174M246 225 307 113" />
+            </g>
+            <g fill="currentColor">
+              <circle cx="18" cy="170" r="2.5" /><circle cx="104" cy="99" r="2.5" />
+              <circle cx="160" cy="153" r="3" /><circle cx="199" cy="88" r="2" />
+              <circle cx="242" cy="42" r="3" /><circle cx="246" cy="225" r="2.5" />
+              <circle cx="307" cy="113" r="3" /><circle cx="357" cy="216" r="2.5" />
+              <circle cx="431" cy="23" r="2" /><circle cx="432" cy="174" r="2.5" />
+            </g>
+          </svg>
+          <div class="intro__copy">
+            <h1 id="page-name">ぐり</h1>
+            <p class="intro__role" data-i18n="role">セキュリティエンジニア</p>
+            <h2 class="visually-hidden" data-i18n="about">自己紹介</h2>
+            <div class="intro__bio">
+              <p data-i18n="bio1">脆弱性調査を中心に実務をしてきました</p>
+              <p data-i18n="bio2">今は主にAD環境へのペネトレーションテストを実施しています</p>
+              <p data-i18n="bio3">HTBを中心に技術を身に着けているところです</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section qualifications" id="qualifications" aria-labelledby="qualifications-heading">
+          <div class="section-heading">
+            <span class="section-heading__number" aria-hidden="true">01</span>
+            <h2 id="qualifications-heading" data-i18n="qualifications">資格</h2>
+            <span class="section-heading__line" aria-hidden="true"></span>
+          </div>
+          <ol class="qualification-list">
+            <li><span data-i18n="credential1">安全確保支援士（合格のみ）</span></li>
+            <li>CompTIA Pentest+</li>
+            <li>eJPTv2</li>
+            <li>OSCP, OSCP+</li>
+            <li>OSEP</li>
+            <li>CRTO</li>
+          </ol>
+        </section>
+
+        <section class="content-section social" id="social" aria-labelledby="social-heading">
+          <div class="section-heading">
+            <span class="section-heading__number" aria-hidden="true">02</span>
+            <h2 id="social-heading" data-i18n="social">SNS</h2>
+            <span class="section-heading__line" aria-hidden="true"></span>
+          </div>
+          <ul class="social-list" aria-label="SNS（リンク未設定）" data-i18n-aria="socialList">
+            <li>Twitter</li>
+            <li>Qiita</li>
+            <li>GitHub</li>
+            <li>HTB</li>
+          </ul>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
