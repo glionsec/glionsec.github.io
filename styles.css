@@ -150,11 +150,13 @@ a { color: inherit; }
   margin: 20px 0 0;
   color: var(--subtle);
   font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
-  font-size: .65rem;
+  font-size: .72rem;
+  font-weight: 700;
   line-height: 1.9;
-  letter-spacing: .18em;
+  letter-spacing: .13em;
   white-space: pre-line;
 }
+:root[data-theme="dark"] .sidebar__caption { color: var(--text); }
 
 .main { margin-left: 260px; min-height: 100vh; }
 .main__inner { max-width: 1500px; margin: 0 auto; padding: 68px clamp(30px, 3.3vw, 56px) 68px; }
@@ -243,7 +245,7 @@ a { color: inherit; }
 }
 
 .social { margin-top: 47px; }
-.social-list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; margin: 0; padding: 0; list-style: none; }
+.social-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; margin: 0; padding: 0; list-style: none; }
 .social-list li { min-width: 0; }
 .social-tile {
   display: flex;
@@ -261,10 +263,7 @@ a { color: inherit; }
   transition: border-color .2s, background-color .2s;
 }
 a.social-tile:hover { border-color: var(--accent); background: var(--nav-active); }
-.social-tile--pending { cursor: default; }
 .social-tile__icon { display: block; flex: 0 0 27px; width: 27px; height: 27px; color: var(--accent); }
-.social-tile__icon--x { font-size: 1.65rem; line-height: 1.1; text-align: center; }
-.social-tile__icon--qiita { font-size: 1.75rem; font-weight: 700; line-height: 1; text-align: center; }
 
 @media (max-width: 1050px) {
   .sidebar { width: 218px; }
@@ -292,7 +291,11 @@ a.social-tile:hover { border-color: var(--accent); background: var(--nav-active)
   .content-section { scroll-margin-top: 20px; }
   .intro { min-height: 348px; }
   .scope-art { width: 60%; opacity: .15; }
-  .social-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .social-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 600px) {
+  .social-list { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 450px) {
@@ -305,7 +308,6 @@ a.social-tile:hover { border-color: var(--accent); background: var(--nav-active)
   .social-list { gap: 10px; }
   .social-tile { min-height: 66px; gap: 8px; padding: 8px; font-size: .81rem; }
   .social-tile__icon { flex-basis: 21px; width: 21px; height: 21px; }
-  .social-tile__icon--x, .social-tile__icon--qiita { font-size: 1.35rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
