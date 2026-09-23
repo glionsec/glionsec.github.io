@@ -30,12 +30,9 @@
         </a>
       </nav>
 
-      <div class="sidebar__rule" aria-hidden="true"></div>
-    </aside>
-
-    <main class="main" id="main">
-      <div class="main__inner">
-        <div class="preferences" aria-label="表示設定" data-i18n-aria="preferences">
+      <div class="sidebar__bottom">
+        <div class="sidebar__rule" aria-hidden="true"></div>
+        <div class="preferences" role="group" aria-label="表示設定" data-i18n-aria="preferences">
           <div class="preference">
             <span class="preference__label" data-i18n="appearance">表示</span>
             <div class="segmented" role="group" aria-label="配色" data-i18n-group="themeGroup">
@@ -51,7 +48,11 @@
             </div>
           </div>
         </div>
+      </div>
+    </aside>
 
+    <main class="main" id="main">
+      <div class="main__inner">
         <section class="intro content-section" id="about" aria-labelledby="page-name">
           <svg class="network-art" viewBox="0 0 460 280" aria-hidden="true" focusable="false">
             <g class="network-art__lines" fill="none" stroke="currentColor" stroke-width="1">
