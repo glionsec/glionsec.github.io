@@ -37,6 +37,8 @@
       socialList: "SNSリンク",
       collapseSidebar: "サイドバーを折りたたむ",
       expandSidebar: "サイドバーを開く",
+      openMenu: "メニューを開く",
+      closeMenu: "メニューを閉じる",
       switchToLight: "白テーマに切り替える",
       switchToDark: "黒テーマに切り替える",
       switchToEnglish: "英語に切り替える",
@@ -76,6 +78,8 @@
       socialList: "Social links",
       collapseSidebar: "Collapse sidebar",
       expandSidebar: "Expand sidebar",
+      openMenu: "Open menu",
+      closeMenu: "Close menu",
       switchToLight: "Switch to light theme",
       switchToDark: "Switch to dark theme",
       switchToEnglish: "Switch to English",
@@ -91,6 +95,10 @@
   };
 
   const sidebarToggle = document.querySelector("[data-sidebar-toggle]");
+  const mobileToggle = document.querySelector("[data-mobile-toggle]");
+  const mobileIconPath = mobileToggle.querySelector("[data-mobile-icon-path]");
+  const mobileBreakpoint = window.matchMedia("(max-width: 700px)");
+  let mobileMenuOpen = false;
   const compactTheme = document.querySelector("[data-compact-theme]");
   const compactLanguage = document.querySelector("[data-compact-language]");
   const themeIconPath = compactTheme.querySelector("[data-theme-icon-path]");
@@ -115,10 +123,21 @@
     sidebarToggle.setAttribute("aria-label", label);
     sidebarToggle.title = label;
   };
+  const syncSidebarLayout = () => {
+    const translated = copy[document.documentElement.lang] || copy.ja;
+    const label = mobileMenuOpen ? translated.closeMenu : translated.openMenu;
+    const desktopExpanded = document.documentElement.dataset.sidebar !== "collapsed";
+    document.documentElement.dataset.mobileMenu = mobileMenuOpen ? "open" : "closed";
+    mobileToggle.setAttribute("aria-expanded", String(mobileMenuOpen));
+    mobileToggle.setAttribute("aria-label", label);
+    mobileToggle.title = label;
+    mobileIconPath.setAttribute("d", mobileMenuOpen ? "M5 5l14 14M19 5 5 19" : "M4 6h16M4 12h16M4 18h16");
+    compactControls.hidden = mobileBreakpoint.matches || desktopExpanded;
+    expandedControls.hidden = mobileBreakpoint.matches ? !mobileMenuOpen : !desktopExpanded;
+  };
   const applySidebar = (expanded) => {
     document.documentElement.dataset.sidebar = expanded ? "expanded" : "collapsed";
-    compactControls.hidden = expanded;
-    expandedControls.hidden = !expanded;
+    syncSidebarLayout();
     syncSidebarToggle();
     remember(storageKeySidebar, document.documentElement.dataset.sidebar);
   };
@@ -152,6 +171,7 @@
       button.setAttribute("aria-pressed", String(button.dataset.langChoice === language));
     });
     syncSidebarToggle();
+    syncSidebarLayout();
     syncCompactControls();
     remember(storageKeyLanguage, language);
   };
@@ -170,6 +190,29 @@
   });
   sidebarToggle.addEventListener("click", () => {
     applySidebar(document.documentElement.dataset.sidebar === "collapsed");
+  });
+  mobileToggle.addEventListener("click", () => {
+    mobileMenuOpen = !mobileMenuOpen;
+    syncSidebarLayout();
+  });
+  document.querySelectorAll(".sidebar__name, .nav-link").forEach((link) => {
+    link.addEventListener("click", () => {
+      if (mobileBreakpoint.matches && mobileMenuOpen) {
+        mobileMenuOpen = false;
+        syncSidebarLayout();
+      }
+    });
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && mobileBreakpoint.matches && mobileMenuOpen) {
+      mobileMenuOpen = false;
+      syncSidebarLayout();
+      mobileToggle.focus();
+    }
+  });
+  mobileBreakpoint.addEventListener("change", () => {
+    mobileMenuOpen = false;
+    syncSidebarLayout();
   });
 
   applyTheme(stored(storageKeyTheme) === "light" ? "light" : "dark");
