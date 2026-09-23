@@ -176,38 +176,19 @@ a { color: inherit; }
   position: absolute;
   top: 35px;
   right: 0;
-  width: min(41%, 465px);
-  height: 267px;
+  width: min(46%, 525px);
+  height: 300px;
   overflow: hidden;
   color: var(--accent);
-  opacity: .38;
+  opacity: .48;
   pointer-events: none;
-  background-image: linear-gradient(to right, var(--line) 1px, transparent 1px), linear-gradient(to bottom, var(--line) 1px, transparent 1px);
-  background-size: 31px 31px;
-  mask-image: linear-gradient(to right, transparent, black 32%);
+  mask-image: linear-gradient(to right, transparent, black 24%);
 }
-.scope-art__ring {
-  position: absolute;
-  top: 39px;
-  right: 18px;
-  width: 242px;
-  height: 242px;
-  border: 1px solid currentColor;
-  border-radius: 50%;
-}
-.scope-art__cross {
-  position: absolute;
-  top: 151px;
-  right: 121px;
-  width: 35px;
-  height: 35px;
-}
-.scope-art__cross::before, .scope-art__cross::after { content: ""; position: absolute; background: currentColor; }
-.scope-art__cross::before { top: 17px; width: 35px; height: 1px; }
-.scope-art__cross::after { left: 17px; width: 1px; height: 35px; }
-.scope-art__dot { position: absolute; width: 4px; height: 4px; border-radius: 50%; background: currentColor; }
-.scope-art__dot--left { top: 136px; left: 18%; }
-.scope-art__dot--right { top: 168px; right: 7px; }
+.scope-art svg { display: block; width: 100%; height: 100%; }
+.scope-art__links { stroke-opacity: .4; }
+.scope-art__nodes { fill-opacity: .75; }
+.scope-art__specks { fill-opacity: .24; }
+:root[data-theme="light"] .scope-art { opacity: .28; }
 
 .qualifications { margin-top: 0; }
 .qualification-list { margin: 0; padding: 0; list-style: none; counter-reset: credentials; border-top: 1px solid var(--line); }
@@ -271,6 +252,7 @@ a.social-tile:hover .social-tile__icon { color: var(--text); }
   .content-section { scroll-margin-top: 20px; }
   .intro { min-height: 348px; }
   .scope-art { width: 60%; opacity: .15; }
+  :root[data-theme="light"] .scope-art { opacity: .15; }
 }
 
 @media (max-width: 450px) {
