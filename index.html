@@ -1,13 +1,13 @@
 <!doctype html>
-<html lang="ja" data-theme="dark" data-sidebar="expanded">
+<html lang="ja" data-theme="dark" data-sidebar="expanded" data-mobile-menu="closed">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#0b151d" />
     <meta name="description" content="ぐりのセキュリティエンジニアとしてのプロフィールと資格。" />
     <title>ぐり | セキュリティエンジニア</title>
-    <link rel="stylesheet" href="./styles.css?v=20260923-3" />
-    <script src="./app.js?v=20260923-3" defer></script>
+    <link rel="stylesheet" href="./styles.css?v=20260923-4" />
+    <script src="./app.js?v=20260923-4" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main" data-i18n="skip">本文へ移動</a>
@@ -15,6 +15,9 @@
     <aside class="sidebar">
       <header class="sidebar__identity">
         <a class="sidebar__name" href="#home">Home</a>
+        <button class="sidebar__mobile-toggle" type="button" data-mobile-toggle aria-controls="sidebar-nav sidebar-preferences" aria-expanded="false" aria-label="メニューを開く" title="メニューを開く">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" focusable="false"><path data-mobile-icon-path d="M4 6h16M4 12h16M4 18h16" /></svg>
+        </button>
       </header>
 
       <nav class="sidebar__nav" id="sidebar-nav" aria-label="ページ内の移動" data-i18n-aria="navigation">
