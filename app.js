@@ -93,6 +93,9 @@
   const sidebarToggle = document.querySelector("[data-sidebar-toggle]");
   const compactTheme = document.querySelector("[data-compact-theme]");
   const compactLanguage = document.querySelector("[data-compact-language]");
+  const themeIconPath = compactTheme.querySelector("[data-theme-icon-path]");
+  const sunIcon = "M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0ZM12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4";
+  const moonIcon = "M20.5 14.1A8.5 8.5 0 0 1 9.9 3.5 8.5 8.5 0 1 0 20.5 14.1Z";
   const compactControls = document.querySelector(".sidebar__compact-controls");
   const expandedControls = document.querySelector(".sidebar__bottom");
   const syncCompactControls = () => {
@@ -122,8 +125,7 @@
 
   const applyTheme = (theme) => {
     document.documentElement.dataset.theme = theme;
-    compactTheme.querySelector(".sidebar__icon-sun").hidden = theme === "light";
-    compactTheme.querySelector(".sidebar__icon-moon").hidden = theme !== "light";
+    themeIconPath.setAttribute("d", theme === "light" ? moonIcon : sunIcon);
     document.querySelectorAll("[data-theme-choice]").forEach((button) => {
       button.setAttribute("aria-pressed", String(button.dataset.themeChoice === theme));
     });
