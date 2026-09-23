@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja" data-theme="dark">
+<html lang="ja" data-theme="dark" data-sidebar="expanded">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -15,9 +15,12 @@
     <aside class="sidebar">
       <header class="sidebar__identity">
         <a class="sidebar__name" href="#home">Home</a>
+        <button class="sidebar__toggle" type="button" data-sidebar-toggle aria-controls="sidebar-nav sidebar-preferences" aria-expanded="true" aria-label="サイドバーを折りたたむ" title="サイドバーを折りたたむ">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m15 5-7 7 7 7" /></svg>
+        </button>
       </header>
 
-      <nav class="sidebar__nav" aria-label="ページ内の移動" data-i18n-aria="navigation">
+      <nav class="sidebar__nav" id="sidebar-nav" aria-label="ページ内の移動" data-i18n-aria="navigation">
         <a class="nav-link" href="#about">
           <span data-i18n="about">自己紹介</span>
         </a>
@@ -29,7 +32,7 @@
         </a>
       </nav>
 
-      <div class="sidebar__bottom">
+      <div class="sidebar__bottom" id="sidebar-preferences">
         <div class="sidebar__rule" aria-hidden="true"></div>
         <div class="preferences" role="group" aria-label="表示設定" data-i18n-aria="preferences">
           <div class="preference">
@@ -58,23 +61,26 @@
             <span class="section-heading__line"></span>
           </div>
           <div class="scope-art" aria-hidden="true">
-            <svg viewBox="0 0 525 332" preserveAspectRatio="xMidYMid slice" focusable="false">
+            <svg viewBox="0 0 900 360" preserveAspectRatio="none" focusable="false">
               <g class="scope-art__links" fill="none" stroke="currentColor" stroke-width="1">
-                <path d="M79 157 164 89 210 127 79 157 195 229 210 127 301 42 164 89M210 127 330 169 195 229 389 251 330 169 421 97 301 42 325 4M301 42 330 169M421 97 447 104 486 216 389 251M421 97 486 216M330 169 486 216M486 216 471 313M447 104 525 51M486 216 525 187M325 4 421 97" />
+                <path d="M26 234 92 177 189 98 258 155 92 177 154 263 258 155 351 251 154 263M189 98 319 80 258 155 419 124 319 80 480 29 419 124 512 184 351 251M258 155 351 251M480 29 639 107 512 184 572 278 351 251M419 124 639 107 701 155 512 184M512 184 701 155 572 278 715 321 801 248 701 155M639 107 760 39 701 155 866 184 801 248M760 39 866 184M801 248 838 347 715 321 572 278 540 355M866 184 900 124" />
               </g>
               <g class="scope-art__nodes" fill="currentColor">
-                <circle cx="79" cy="157" r="3.2" /><circle cx="164" cy="89" r="2.7" />
-                <circle cx="210" cy="127" r="2.9" /><circle cx="195" cy="229" r="3.4" />
-                <circle cx="301" cy="42" r="2.8" /><circle cx="325" cy="4" r="3.4" />
-                <circle cx="330" cy="169" r="3.3" /><circle cx="389" cy="251" r="2.3" />
-                <circle cx="421" cy="97" r="3.5" /><circle cx="447" cy="104" r="2.4" />
-                <circle cx="486" cy="216" r="3.1" /><circle cx="471" cy="313" r="2.3" />
+                <circle cx="26" cy="234" r="2.5" /><circle cx="92" cy="177" r="3" />
+                <circle cx="154" cy="263" r="2.7" /><circle cx="189" cy="98" r="2.9" />
+                <circle cx="258" cy="155" r="3.2" /><circle cx="319" cy="80" r="2.6" />
+                <circle cx="351" cy="251" r="3.4" /><circle cx="419" cy="124" r="2.9" />
+                <circle cx="480" cy="29" r="3.4" /><circle cx="512" cy="184" r="3.1" />
+                <circle cx="572" cy="278" r="2.4" /><circle cx="639" cy="107" r="3.2" />
+                <circle cx="701" cy="155" r="2.7" /><circle cx="760" cy="39" r="2.7" />
+                <circle cx="801" cy="248" r="3.1" /><circle cx="866" cy="184" r="2.9" />
+                <circle cx="715" cy="321" r="2.4" /><circle cx="838" cy="347" r="2.2" />
               </g>
               <g class="scope-art__specks" fill="currentColor">
-                <circle cx="34" cy="112" r="2.2" /><circle cx="37" cy="194" r="1.8" />
-                <circle cx="118" cy="240" r="2.2" /><circle cx="233" cy="45" r="2.1" />
-                <circle cx="272" cy="283" r="2.3" /><circle cx="372" cy="294" r="1.7" />
-                <circle cx="501" cy="154" r="1.8" /><circle cx="503" cy="278" r="1.7" />
+                <circle cx="64" cy="67" r="2" /><circle cx="111" cy="306" r="1.7" />
+                <circle cx="273" cy="24" r="1.8" /><circle cx="307" cy="328" r="2.1" />
+                <circle cx="455" cy="314" r="1.9" /><circle cx="553" cy="60" r="1.8" />
+                <circle cx="611" cy="343" r="2" /><circle cx="825" cy="87" r="1.8" />
               </g>
             </svg>
           </div>
