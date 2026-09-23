@@ -29,6 +29,7 @@
 }
 
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
@@ -243,6 +244,9 @@ a { color: inherit; }
   font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
   font-size: 1.04rem;
 }
+.qualification-list li.is-expired,
+.qualification-list li.is-expired::before { color: var(--subtle); }
+.credential-status { margin-left: .7em; color: var(--subtle); font-size: .82em; white-space: nowrap; }
 
 .social { margin-top: 47px; }
 .social-list { display: flex; flex-wrap: wrap; gap: 12px; margin: 0; padding: 0; list-style: none; }
