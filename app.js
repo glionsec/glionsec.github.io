@@ -7,9 +7,13 @@
       description: "ぐりのセキュリティエンジニアとしてのプロフィールと資格。",
       skip: "本文へ移動",
       role: "セキュリティエンジニア",
+      home: "ホーム",
       about: "自己紹介",
+      aboutLabel: "自己紹介",
       qualifications: "資格",
+      qualificationsLabel: "資格",
       social: "SNS",
+      socialLabel: "SNS",
       bio1: "脆弱性調査を中心に実務をしてきました",
       bio2: "今は主にAD環境へのペネトレーションテストを実施しています",
       bio3: "HTBを中心に技術を身に着けているところです",
@@ -22,16 +26,21 @@
       preferences: "表示設定",
       themeGroup: "配色",
       languageGroup: "言語",
-      socialList: "SNS（リンク未設定）"
+      socialList: "SNS（Qiitaはリンク未設定）",
+      caption: "セキュリティ\nエンジニア\nポートフォリオ"
     },
     en: {
       title: "ぐり | Security Engineer",
       description: "Profile and certifications of ぐり, a security engineer.",
       skip: "Skip to content",
       role: "Security Engineer",
+      home: "Home",
       about: "About",
+      aboutLabel: "About",
       qualifications: "Certifications",
+      qualificationsLabel: "Qualifications",
       social: "Social",
+      socialLabel: "Social",
       bio1: "My professional work has focused on vulnerability research.",
       bio2: "I currently conduct penetration tests of Active Directory environments.",
       bio3: "I continue to build my skills primarily through Hack The Box.",
@@ -44,7 +53,8 @@
       preferences: "Display preferences",
       themeGroup: "Color theme",
       languageGroup: "Language",
-      socialList: "Social platforms (links not set)"
+      socialList: "Social platforms (Qiita link not set)",
+      caption: "SECURITY\nENGINEER\nPORTFOLIO"
     }
   };
 
@@ -98,7 +108,7 @@
   const sections = links.map((link) => document.querySelector(link.getAttribute("href")));
   let scheduled = false;
   const updateActiveSection = () => {
-    const position = window.scrollY + window.innerHeight * 0.35;
+    const position = window.scrollY + window.innerHeight * 0.2;
     let activeIndex = 0;
     sections.forEach((section, index) => {
       if (section.getBoundingClientRect().top + window.scrollY <= position) activeIndex = index;
