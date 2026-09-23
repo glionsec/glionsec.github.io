@@ -106,11 +106,18 @@ a { color: inherit; }
 }
 .sidebar__toggle:hover { color: var(--accent); }
 .sidebar__toggle svg { transition: transform .2s ease; }
+.sidebar__compact-controls { display: none; }
+.sidebar__compact-controls button { display: grid; place-items: center; width: 36px; height: 36px; padding: 0; border: 0; background: transparent; color: var(--secondary); cursor: pointer; }
+.sidebar__compact-controls button:hover { color: var(--accent); }
+.sidebar__icon-moon { display: none; }
+:root[data-theme="light"] .sidebar__icon-sun { display: none; }
+:root[data-theme="light"] .sidebar__icon-moon { display: block; }
 :root[data-sidebar="collapsed"] .sidebar { width: 60px; }
 :root[data-sidebar="collapsed"] .sidebar__identity,
 :root[data-sidebar="collapsed"] .sidebar__nav,
 :root[data-sidebar="collapsed"] .sidebar__bottom { display: none; }
 :root[data-sidebar="collapsed"] .sidebar__footer { margin-top: auto; padding: 0 0 26px; align-items: center; }
+:root[data-sidebar="collapsed"] .sidebar__compact-controls { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-bottom: 18px; }
 :root[data-sidebar="collapsed"] .sidebar__toggle { color: var(--accent); }
 :root[data-sidebar="collapsed"] .sidebar__toggle svg { transform: rotate(180deg); }
 .sidebar__nav { display: grid; gap: 1px; margin: 20px 18px 0; }
@@ -271,7 +278,8 @@ a.social-tile:hover .social-tile__icon { color: var(--text); }
   .nav-link.is-active { border-left-color: transparent; border-bottom-color: var(--accent); }
   .sidebar__bottom { margin-top: 0; padding: 10px 22px 0; border-top: 1px solid var(--line); }
   .sidebar__footer { align-items: flex-end; padding: 22px 22px 14px; }
-  :root[data-sidebar="collapsed"] .sidebar__footer { margin-top: 0; padding: 8px 22px 12px; align-items: flex-end; }
+  :root[data-sidebar="collapsed"] .sidebar__footer { flex-direction: row; justify-content: space-between; align-items: center; margin-top: 0; padding: 8px 22px 12px; }
+  :root[data-sidebar="collapsed"] .sidebar__compact-controls { flex-direction: row; gap: 8px; margin-bottom: 0; }
   .sidebar__rule { display: none; }
   .preferences { display: flex; flex-wrap: wrap; gap: 10px 18px; }
   .preference { display: flex; align-items: center; gap: 8px; }
