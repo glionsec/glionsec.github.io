@@ -7,7 +7,6 @@
       description: "ぐりのセキュリティエンジニアとしてのプロフィールと資格。",
       skip: "本文へ移動",
       role: "セキュリティエンジニア",
-      home: "ホーム",
       about: "自己紹介",
       aboutLabel: "自己紹介",
       qualifications: "資格",
@@ -33,7 +32,6 @@
       description: "Profile and certifications of ぐり, a security engineer.",
       skip: "Skip to content",
       role: "Security Engineer",
-      home: "Home",
       about: "About",
       aboutLabel: "About",
       qualifications: "Certifications",
@@ -107,7 +105,7 @@
   let scheduled = false;
   const updateActiveSection = () => {
     const position = window.scrollY + window.innerHeight * 0.2;
-    let activeIndex = 0;
+    let activeIndex = -1;
     sections.forEach((section, index) => {
       if (section.getBoundingClientRect().top + window.scrollY <= position) activeIndex = index;
     });
