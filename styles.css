@@ -169,7 +169,7 @@ a { color: inherit; }
 .segmented button[aria-pressed="true"] { background: var(--nav-active); color: var(--accent); font-weight: 700; }
 .main { margin-left: 260px; min-height: 100vh; transition: margin-left .2s ease; }
 :root[data-sidebar="collapsed"] .main { margin-left: 60px; }
-.main__inner { max-width: 1500px; margin: 0 auto; padding: 68px clamp(30px, 3.3vw, 56px) 68px; }
+.main__inner { max-width: 1500px; margin: 0 auto; padding: 68px clamp(30px, 3.3vw, 56px) max(68px, calc(100vh - 180px)); }
 .content-section { scroll-margin-top: 34px; }
 .section-heading {
   display: flex;
@@ -287,7 +287,7 @@ a.social-tile:hover .social-tile__icon { color: var(--text); }
   .preference { display: flex; align-items: center; gap: 8px; }
   .main { margin-left: 0; }
   :root[data-sidebar="collapsed"] .main { margin-left: 0; }
-  .main__inner { padding: 32px 22px 54px; }
+  .main__inner { padding: 32px 22px max(54px, calc(100vh - 150px)); }
   .content-section { scroll-margin-top: 20px; }
   .intro { min-height: 348px; }
   .scope-art { width: 100%; opacity: .15; }
