@@ -26,7 +26,7 @@
       preferences: "表示設定",
       themeGroup: "配色",
       languageGroup: "言語",
-      socialList: "SNS（Qiitaはリンク未設定）",
+      socialList: "SNSリンク",
       caption: "セキュリティ\nエンジニア\nポートフォリオ"
     },
     en: {
@@ -53,7 +53,7 @@
       preferences: "Display preferences",
       themeGroup: "Color theme",
       languageGroup: "Language",
-      socialList: "Social platforms (Qiita link not set)",
+      socialList: "Social links",
       caption: "SECURITY\nENGINEER\nPORTFOLIO"
     }
   };
