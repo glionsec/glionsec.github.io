@@ -156,13 +156,21 @@ a { color: inherit; }
 .section-heading h2 { margin: 0; font: inherit; }
 .section-heading__line { flex: 1; height: 1px; background: var(--accent); }
 
-.intro { position: relative; min-height: 352px; isolation: isolate; }
+.intro { position: relative; min-height: 352px; padding-bottom: 48px; isolation: isolate; }
 .section-heading--intro { position: relative; z-index: 1; max-width: 69%; }
-.intro__copy { position: relative; z-index: 1; width: min(100%, 850px); padding-top: 20px; }
+.intro__copy { position: relative; z-index: 1; padding-top: 20px; }
 .intro h1 { margin: 0; font-size: clamp(3.5rem, 6vw, 5.5rem); font-weight: 600; line-height: 1.3; letter-spacing: .08em; }
 .intro__role { margin: 0; color: var(--secondary); font-size: clamp(1.05rem, 1.7vw, 1.45rem); letter-spacing: .13em; }
-.intro__bio { margin-top: 34px; font-size: clamp(1rem, 1.3vw, 1.23rem); line-height: 1.8; }
-.intro__bio p { margin: 0; }
+.intro__details { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(270px, .9fr); gap: clamp(30px, 4vw, 64px); margin-top: 34px; }
+.intro__bio { font-size: clamp(1rem, 1.3vw, 1.23rem); line-height: 1.85; }
+.intro__bio p { margin: 0 0 1em; }
+.intro__bio p:last-child { margin-bottom: 0; }
+.intro__focus { padding-left: 26px; border-left: 1px solid var(--line); }
+.intro__focus h2 { margin: 2px 0 16px; color: var(--secondary); font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: .75rem; font-weight: 400; letter-spacing: .2em; text-transform: uppercase; }
+.intro__focus ul { display: grid; gap: 17px; margin: 0; padding: 0; list-style: none; }
+.intro__focus li { display: grid; gap: 2px; }
+.intro__focus strong { color: var(--accent); font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: .86rem; font-weight: 500; letter-spacing: .07em; }
+.intro__focus li span { color: var(--secondary); font-size: .88rem; line-height: 1.65; }
 
 .scope-art {
   position: absolute;
@@ -241,6 +249,10 @@ a.social-tile:hover .social-tile__icon { color: var(--text); }
   .sidebar__identity { padding-left: 30px; }
   .sidebar__bottom { padding-left: 30px; }
   .main { margin-left: 218px; }
+}
+
+@media (max-width: 950px) {
+  .intro__details { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 700px) {
