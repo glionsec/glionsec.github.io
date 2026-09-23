@@ -25,6 +25,7 @@
       focus3Title: "PURPLE TEAMING",
       focus3Text: "攻撃側の発見を検知・対応の改善につなげる",
       credential1: "安全確保支援士（合格のみ）",
+      expired: "（期限切れ）",
       appearance: "表示",
       dark: "黒",
       light: "白",
@@ -63,6 +64,7 @@
       focus3Title: "PURPLE TEAMING",
       focus3Text: "Turn offensive findings into improvements in detection and response",
       credential1: "Registered Information Security Specialist exam (passed; not registered)",
+      expired: "(Expired)",
       appearance: "Theme",
       dark: "Dark",
       light: "Light",
@@ -91,6 +93,8 @@
   const sidebarToggle = document.querySelector("[data-sidebar-toggle]");
   const compactTheme = document.querySelector("[data-compact-theme]");
   const compactLanguage = document.querySelector("[data-compact-language]");
+  const compactControls = document.querySelector(".sidebar__compact-controls");
+  const expandedControls = document.querySelector(".sidebar__bottom");
   const syncCompactControls = () => {
     const translated = copy[document.documentElement.lang] || copy.ja;
     const themeLabel = document.documentElement.dataset.theme === "light" ? translated.switchToDark : translated.switchToLight;
@@ -110,12 +114,16 @@
   };
   const applySidebar = (expanded) => {
     document.documentElement.dataset.sidebar = expanded ? "expanded" : "collapsed";
+    compactControls.hidden = expanded;
+    expandedControls.hidden = !expanded;
     syncSidebarToggle();
     remember(storageKeySidebar, document.documentElement.dataset.sidebar);
   };
 
   const applyTheme = (theme) => {
     document.documentElement.dataset.theme = theme;
+    compactTheme.querySelector(".sidebar__icon-sun").hidden = theme === "light";
+    compactTheme.querySelector(".sidebar__icon-moon").hidden = theme !== "light";
     document.querySelectorAll("[data-theme-choice]").forEach((button) => {
       button.setAttribute("aria-pressed", String(button.dataset.themeChoice === theme));
     });
