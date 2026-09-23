@@ -93,6 +93,7 @@ a { color: inherit; }
   letter-spacing: .08em;
   text-decoration: none;
 }
+.sidebar__mobile-toggle { display: none; }
 .sidebar__toggle {
   display: grid;
   flex: 0 0 34px;
@@ -270,17 +271,17 @@ a.social-tile:hover .social-tile__icon { color: var(--text); }
 
 @media (max-width: 700px) {
   .sidebar { position: relative; width: auto; min-height: 0; overflow: visible; border-right: 0; border-bottom: 1px solid var(--line); }
-  .sidebar__identity { padding: 16px 22px 8px; }
+  .sidebar__identity { justify-content: space-between; min-height: 64px; padding: 10px 22px; }
   :root[data-sidebar="collapsed"] .sidebar { width: auto; }
-  :root[data-sidebar="collapsed"] .sidebar__identity { display: flex; padding: 16px 22px 8px; }
+  :root[data-sidebar="collapsed"] .sidebar__identity { display: flex; padding: 10px 22px; }
   .sidebar__name { font-size: 1.4rem; }
-  .sidebar__nav { display: flex; gap: 0; margin: 6px 0 0; overflow-x: auto; }
-  .nav-link { min-height: 44px; padding: 7px 18px; border-left: 0; border-bottom: 3px solid transparent; white-space: nowrap; }
-  .nav-link.is-active { border-left-color: transparent; border-bottom-color: var(--accent); }
-  .sidebar__bottom { margin-top: 0; padding: 10px 22px 0; border-top: 1px solid var(--line); }
-  .sidebar__footer { align-items: flex-end; padding: 22px 22px 14px; }
-  :root[data-sidebar="collapsed"] .sidebar__footer { flex-direction: row; justify-content: space-between; align-items: center; margin-top: 0; padding: 8px 22px 12px; }
-  :root[data-sidebar="collapsed"] .sidebar__compact-controls { flex-direction: row; gap: 8px; margin-bottom: 0; }
+  .sidebar__mobile-toggle { display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 0; background: transparent; color: var(--accent); cursor: pointer; }
+  .sidebar__nav, .sidebar__bottom, .sidebar__footer { display: none; }
+  :root[data-mobile-menu="open"] .sidebar__nav { display: grid; gap: 2px; margin: 0; padding: 8px 18px 14px; border-top: 1px solid var(--line); }
+  .nav-link { min-height: 48px; padding: 8px 18px; border-left: 3px solid transparent; }
+  .nav-link.is-active { border-left-color: var(--accent); }
+  :root[data-mobile-menu="open"] .sidebar__bottom { display: block; margin-top: 0; padding: 18px 22px 22px; border-top: 1px solid var(--line); }
+  :root[data-sidebar="collapsed"] .sidebar__footer { display: none; }
   .sidebar__rule { display: none; }
   .preferences { display: flex; flex-wrap: wrap; gap: 10px 18px; }
   .preference { display: flex; align-items: center; gap: 8px; }
