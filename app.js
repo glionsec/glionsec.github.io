@@ -26,8 +26,7 @@
       preferences: "表示設定",
       themeGroup: "配色",
       languageGroup: "言語",
-      socialList: "SNSリンク",
-      caption: "セキュリティ\nエンジニア\nポートフォリオ"
+      socialList: "SNSリンク"
     },
     en: {
       title: "ぐり | Security Engineer",
@@ -53,8 +52,7 @@
       preferences: "Display preferences",
       themeGroup: "Color theme",
       languageGroup: "Language",
-      socialList: "Social links",
-      caption: "SECURITY\nENGINEER\nPORTFOLIO"
+      socialList: "Social links"
     }
   };
 
