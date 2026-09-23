@@ -82,15 +82,7 @@ a { color: inherit; }
 .sidebar__identity {
   display: flex;
   align-items: center;
-  gap: 18px;
   padding: 48px 28px 22px 57px;
-}
-.sidebar__mark {
-  display: block;
-  flex: 0 0 24px;
-  width: 24px;
-  height: 24px;
-  border: 1px solid var(--accent);
 }
 .sidebar__name {
   font-size: 1.62rem;
@@ -146,18 +138,6 @@ a { color: inherit; }
 }
 .segmented button:hover { color: var(--text); }
 .segmented button[aria-pressed="true"] { background: var(--nav-active); color: var(--accent); font-weight: 700; }
-.sidebar__caption {
-  margin: 20px 0 0;
-  color: var(--subtle);
-  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
-  font-size: .72rem;
-  font-weight: 700;
-  line-height: 1.9;
-  letter-spacing: .13em;
-  white-space: pre-line;
-}
-:root[data-theme="dark"] .sidebar__caption { color: var(--text); }
-
 .main { margin-left: 260px; min-height: 100vh; }
 .main__inner { max-width: 1500px; margin: 0 auto; padding: 68px clamp(30px, 3.3vw, 56px) 68px; }
 .content-section { scroll-margin-top: 34px; }
@@ -252,12 +232,9 @@ a { color: inherit; }
   justify-content: center;
   width: 48px;
   height: 48px;
-  border: 1px solid var(--line);
-  background: var(--tile);
-  transition: border-color .2s, background-color .2s;
 }
-a.social-tile:hover { border-color: var(--accent); background: var(--nav-active); }
-.social-tile__icon { display: block; flex: 0 0 20px; width: 20px; height: 20px; color: var(--accent); }
+a.social-tile:hover .social-tile__icon { color: var(--text); }
+.social-tile__icon { display: block; flex: 0 0 20px; width: 20px; height: 20px; color: var(--accent); transition: color .2s; }
 
 @media (max-width: 1050px) {
   .sidebar { width: 218px; }
@@ -269,13 +246,12 @@ a.social-tile:hover { border-color: var(--accent); background: var(--nav-active)
 @media (max-width: 700px) {
   .sidebar { position: relative; width: auto; min-height: 0; overflow: visible; border-right: 0; border-bottom: 1px solid var(--line); }
   .sidebar__identity { padding: 16px 22px 8px; }
-  .sidebar__mark { width: 19px; height: 19px; flex-basis: 19px; }
   .sidebar__name { font-size: 1.4rem; }
   .sidebar__nav { display: flex; gap: 0; margin: 6px 0 0; overflow-x: auto; }
   .nav-link { min-height: 44px; padding: 7px 18px; border-left: 0; border-bottom: 3px solid transparent; white-space: nowrap; }
   .nav-link.is-active { border-left-color: transparent; border-bottom-color: var(--accent); }
   .sidebar__bottom { margin-top: 0; padding: 10px 22px 14px; border-top: 1px solid var(--line); }
-  .sidebar__rule, .sidebar__caption { display: none; }
+  .sidebar__rule { display: none; }
   .preferences { display: flex; flex-wrap: wrap; gap: 10px 18px; }
   .preference { display: flex; align-items: center; gap: 8px; }
   .main { margin-left: 0; }
